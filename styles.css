@@ -30,26 +30,27 @@ body {
 }
 
 .main-content {
-    padding-top: 2rem;
+    padding: 2rem;
 }
 
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
-    padding: 0 1.5rem;
+    position: relative;
 }
 
 .hero-content {
     max-width: 42rem;
-    text-align: center;
-    margin: 0 auto;
+    margin-left: 10rem;
 }
 
 .main-logo {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 2rem;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: -50px;
+    left: 2rem;
 }
 
 .hero h1 {
@@ -124,6 +125,10 @@ body {
         font-size: 2.5rem;
     }
     
+    .hero-content {
+        margin-left: 2rem;
+    }
+
     .features {
         grid-template-columns: 1fr;
     }
