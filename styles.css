@@ -1,33 +1,71 @@
-/* Keeping existing CSS, updating only relevant parts */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 :root {
     --yellow-400: #F3EC6C;
     --yellow-300: #000000;
     --yellow-200: #737373;
-    --black: #F3EC6C;
-    --text-dark: #000000;
+    --black: #000000;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    color: var(--yellow-400);
+    min-height: 100vh;
 }
 
 .bg-gradient {
-    background: linear-gradient(225deg,
-        var(--yellow-300),
-        var(--yellow-200) 30%,
-        var(--yellow-300) 50%,
-        var(--yellow-200) 70%,
-        var(--yellow-300));
+    background: linear-gradient(-45deg, var(--yellow-400), var(--yellow-300), var(--yellow-200));
     background-size: 200% 200%;
-    animation: shimmerGradient 20s ease-in-out infinite;
+    animation: gradientAnimation 15s ease infinite;
     position: relative;
 }
 
-@keyframes shimmerGradient {
+@keyframes gradientAnimation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
+.main-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+.main-content {
+    padding: 2rem;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 42rem;
+}
+
+.hero h1 {
+    font-size: 3.75rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
 .cta-button {
-    background: var(--text-dark);
+    background: var(--black);
     color: var(--yellow-400);
     padding: 1rem 2rem;
     border: none;
@@ -35,13 +73,58 @@
     font-size: 1.125rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
 }
 
 .cta-button:hover {
     background: var(--yellow-400);
-    color: var(--text-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    color: var(--black);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 5rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(8px);
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-0.25rem);
+}
+
+.icon {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    color: var(--yellow-400);
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
 }
