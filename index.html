@@ -5,12 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Modern Digital Banking">
     <title>BankPro™</title>
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
 </head>
 <body>
-    <div id="root"></div>
-    <script src="app.js"></script>
+    <div class="min-h-screen bg-gradient">
+        <nav class="fixed-nav">
+            <div class="container">
+                <div class="logo-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="logo">
+                        <path d="M50 0c27.6 0 50 22.4 50 50S77.6 100 50 100 0 77.6 0 50 22.4 0 50 0z" fill="#ffff00"/>
+                    </svg>
+                    <span class="brand">BankPro™</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#">Services</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Banking for the Digital Age</h1>
+                    <p>Experience seamless financial management with cutting-edge security and intuitive features.</p>
+                    <button class="cta-button">Get Started</button>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="feature-card">
+                    <i class="icon" data-lucide="activity"></i>
+                    <h3>Real-time Analytics</h3>
+                    <p>Track your spending patterns and financial health with advanced analytics tools.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="icon" data-lucide="credit-card"></i>
+                    <h3>Smart Cards</h3>
+                    <p>Contactless payments with intelligent spending limits and instant notifications.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="icon" data-lucide="shield"></i>
+                    <h3>Bank-grade Security</h3>
+                    <p>Advanced encryption and multi-factor authentication to protect your assets.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
