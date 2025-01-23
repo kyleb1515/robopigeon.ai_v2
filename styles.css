@@ -5,9 +5,9 @@
 }
 
 :root {
-    --yellow-400: #facc15;
-    --yellow-300: #fde047;
-    --yellow-200: #fef08a;
+    --yellow-400: #F3EC6C;
+    --yellow-300: #f5ef8a;
+    --yellow-200: #f7f2a8;
     --black: #000;
 }
 
@@ -29,58 +29,8 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-.fixed-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8px);
-    z-index: 100;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.logo {
-    width: 2.5rem;
-    height: 2.5rem;
-}
-
-.brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--yellow-400);
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: var(--black);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--yellow-400);
-}
-
 .main-content {
-    padding-top: 6rem;
+    padding-top: 2rem;
 }
 
 .hero {
@@ -92,6 +42,14 @@ body {
 
 .hero-content {
     max-width: 42rem;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.main-logo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 2rem;
 }
 
 .hero h1 {
@@ -162,10 +120,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
     .hero h1 {
         font-size: 2.5rem;
     }
