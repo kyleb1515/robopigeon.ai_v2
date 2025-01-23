@@ -1,146 +1,200 @@
+/* Base reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 }
 
+/* CSS Variables */
 :root {
-    --yellow-400: #F3EC6C;
-    --yellow-300: #000000;
-    --yellow-200: #737373;
-    --black: #000000;
+   --yellow-400: #F3EC6C;
+   --yellow-300: #000000;
+   --yellow-200: #737373;
+   --black: #F3EC6C;
+   --transition-standard: 0.3s ease;
+   --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+   --shadow-md: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Global styles */
 body {
-    font-family: system-ui, -apple-system, sans-serif;
-    color: var(--yellow-400);
-    min-height: 100vh;
-    background-color: var(--yellow-300);
+   font-family: system-ui, -apple-system, sans-serif;
+   color: var(--black);
+   min-height: 100vh;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Background gradient animation */
 .bg-gradient {
-    min-height: 100vh;
-    background: linear-gradient(-45deg, var(--yellow-300), var(--yellow-200));
-    background-size: 200% 200%;
-    animation: gradientAnimation 15s ease infinite;
-    position: relative;
+   background: linear-gradient(225deg,
+       var(--yellow-300) 0%,
+       var(--yellow-200) 15%,
+       var(--yellow-300) 25%,
+       var(--yellow-200) 35%,
+       var(--yellow-300) 45%,
+       var(--yellow-200) 55%,
+       var(--yellow-300) 65%,
+       var(--yellow-200) 75%,
+       var(--yellow-300) 85%,
+       var(--yellow-200) 95%,
+       var(--yellow-300) 100%);
+   background-size: 400% 400%;
+   animation: shimmerGradient 8s linear infinite;
+   position: relative;
+   will-change: background-position;
 }
 
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* Gradient overlay for depth */
+.bg-gradient::after {
+   content: '';
+   position: absolute;
+   inset: 0;
+   background: radial-gradient(
+       circle at center,
+       transparent 0%,
+       rgba(0, 0, 0, 0.3) 100%
+   );
+   pointer-events: none;
 }
 
+/* Gradient animation keyframes */
+@keyframes shimmerGradient {
+   0% { background-position: 200% 50%; }
+   100% { background-position: -200% 50%; }
+}
+
+/* Logo styling */
 .main-logo {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 150px;
-    height: 150px;
-    z-index: 10;
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   width: 150px;
+   height: 150px;
+   z-index: 2;
 }
 
+/* Layout */
 .main-content {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+   padding: 2rem;
 }
 
+/* Hero section */
 .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 2rem;
+   height: 100vh;
+   display: flex;
+   align-items: center;
 }
 
 .hero-content {
-    max-width: 42rem;
+   max-width: 42rem;
+   position: relative;
+   z-index: 1;
 }
 
 .hero h1 {
-    font-size: 3.75rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    color: var(--yellow-400);
+   font-size: 3.75rem;
+   font-weight: bold;
+   margin-bottom: 1.5rem;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    opacity: 0.8;
-    color: var(--yellow-400);
+   font-size: 1.25rem;
+   margin-bottom: 2rem;
+   opacity: 0.8;
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* Button styles */
 .cta-button {
-    background: var(--black);
-    color: var(--yellow-400);
-    padding: 1rem 2rem;
-    border: 1px solid var(--yellow-400);
-    border-radius: 0.5rem;
-    font-size: 1.125rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
+   background: var(--black);
+   color: var(--black);
+   padding: 1rem 2rem;
+   border: none;
+   border-radius: 0.5rem;
+   font-size: 1.125rem;
+   font-weight: 600;
+   cursor: pointer;
+   transition: transform var(--transition-standard),
+               box-shadow var(--transition-standard);
+   box-shadow: var(--shadow-sm);
 }
 
 .cta-button:hover {
-    background: var(--yellow-400);
-    color: var(--black);
+   background: var(--black);
+   color: var(--black);
+   transform: translateY(-2px);
+   box-shadow: var(--shadow-md);
 }
 
+/* Features section */
 .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 5rem 2rem;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 2rem;
+   padding: 5rem 1.5rem;
+   max-width: 1200px;
+   margin: 0 auto;
+   position: relative;
+   z-index: 1;
 }
 
+/* Feature cards */
 .feature-card {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    padding: 2rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(243, 236, 108, 0.2);
-    transition: transform 0.3s;
+   background: rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+   padding: 2rem;
+   border-radius: 1rem;
+   transition: all var(--transition-standard);
+   border: 1px solid rgba(243, 236, 108, 0.1);
 }
 
 .feature-card:hover {
-    transform: translateY(-0.25rem);
-    border-color: var(--yellow-400);
+   transform: translateY(-0.25rem);
+   background: rgba(0, 0, 0, 0.15);
+   border-color: rgba(243, 236, 108, 0.2);
 }
 
 .icon {
-    width: 3rem;
-    height: 3rem;
-    margin-bottom: 1rem;
-    color: var(--yellow-400);
+   width: 3rem;
+   height: 3rem;
+   margin-bottom: 1rem;
+   color: var(--yellow-400);
 }
 
 .feature-card h3 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: var(--yellow-400);
+   font-size: 1.25rem;
+   font-weight: bold;
+   margin-bottom: 1rem;
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .feature-card p {
-    color: var(--yellow-400);
-    opacity: 0.8;
+   opacity: 0.7;
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+/* Responsive design */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .features {
-        grid-template-columns: 1fr;
-    }
+   .hero h1 {
+       font-size: 2.5rem;
+   }
+   
+   .features {
+       grid-template-columns: 1fr;
+   }
+}
 
-    .main-logo {
-        width: 100px;
-        height: 100px;
-    }
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+   .bg-gradient {
+       animation: none;
+   }
+
+   .feature-card,
+   .cta-button {
+       transition: none;
+   }
 }
