@@ -34,8 +34,8 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 150px; /* Reduced size */
-    height: 150px; /* Reduced size */
+    width: 150px;
+    height: 150px;
 }
 
 .main-content {
