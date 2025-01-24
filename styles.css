@@ -29,48 +29,14 @@ body {
     min-height: 100vh;
     font-family: system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
-    position: relative;
-    overflow-x: hidden;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-        circle at 50% 50%,
-        rgba(255, 255, 0, 0.03) 0%,
-        rgba(0, 0, 0, 0) 70%
-    );
-    animation: pulse 8s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        opacity: 0.5;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.8;
-        transform: scale(1.1);
-    }
 }
 
 /* Layout Components */
 .sidebar-container {
     width: 288px;
-    background: linear-gradient(
-        90deg,
-        var(--color-background) 0%,
-        rgba(10, 10, 10, 0.95) 100%
-    );
+    background: var(--color-background);
     transition: width var(--transition-standard);
     z-index: var(--z-sidebar);
-    backdrop-filter: blur(8px);
 }
 
 .sidebar-container.collapsed {
@@ -94,7 +60,11 @@ body::before {
 
 /* Cards and Containers */
 .card {
-    background: rgba(10, 10, 10, 0.7);
+    background: linear-gradient(
+        145deg,
+        var(--color-background-light),
+        var(--color-background)
+    );
     border-radius: 12px;
     padding: 24px;
     margin-bottom: 16px;
@@ -102,7 +72,6 @@ body::before {
     transition: transform var(--transition-standard),
                 border-color var(--transition-standard),
                 box-shadow var(--transition-standard);
-    backdrop-filter: blur(12px);
 }
 
 .card:hover {
@@ -111,7 +80,6 @@ body::before {
     box-shadow: var(--shadow-glow);
 }
 
-/* Rest of the CSS remains the same */
 /* Interactive Elements */
 .floating {
     box-shadow: var(--shadow-glow);
@@ -204,7 +172,6 @@ body::before {
     transition: all var(--transition-standard);
     z-index: var(--z-toast);
     pointer-events: none;
-    backdrop-filter: blur(8px);
 }
 
 .toast.show {
