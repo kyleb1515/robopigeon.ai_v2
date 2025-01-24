@@ -34,6 +34,12 @@ body {
    width: 150px;
    height: 150px;
    z-index: 2;
+   cursor: pointer;
+   transition: transform 1s ease;
+}
+
+.main-logo.rotate {
+   transform: rotate(360deg);
 }
 
 /* Layout */
@@ -146,7 +152,8 @@ body {
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
    .feature-card,
-   .cta-button {
+   .cta-button,
+   .main-logo {
        transition: none;
    }
 }
