@@ -51,10 +51,10 @@
             const logo = document.getElementById('mainLogo');
             logo.addEventListener('click', function() {
                 console.log('Logo clicked');
-                this.style.transform = 'rotate(360deg)';
-                setTimeout(() => {
-                    this.style.transform = 'rotate(0deg)';
-                }, 1000);
+                this.classList.add('spinning');
+                this.addEventListener('animationend', function() {
+                    this.classList.remove('spinning');
+                }, {once: true});
             });
         });
     </script>
