@@ -25,43 +25,10 @@ body {
    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Background gradient animation */
+/* Background */
 .bg-gradient {
-   background: linear-gradient(225deg,
-       var(--yellow-300) 0%,
-       var(--yellow-200) 15%,
-       var(--yellow-300) 25%,
-       var(--yellow-200) 35%,
-       var(--yellow-300) 45%,
-       var(--yellow-200) 55%,
-       var(--yellow-300) 65%,
-       var(--yellow-200) 75%,
-       var(--yellow-300) 85%,
-       var(--yellow-200) 95%,
-       var(--yellow-300) 100%);
-   background-size: 400% 400%;
-   animation: shimmerGradient 8s linear infinite;
+   background: var(--yellow-300);
    position: relative;
-   will-change: background-position;
-}
-
-/* Gradient overlay for depth */
-.bg-gradient::after {
-   content: '';
-   position: absolute;
-   inset: 0;
-   background: radial-gradient(
-       circle at center,
-       transparent 0%,
-       rgba(0, 0, 0, 0.3) 100%
-   );
-   pointer-events: none;
-}
-
-/* Gradient animation keyframes */
-@keyframes shimmerGradient {
-   0% { background-position: 200% 50%; }
-   100% { background-position: -200% 50%; }
 }
 
 /* Logo styling */
@@ -189,10 +156,6 @@ body {
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-   .bg-gradient {
-       animation: none;
-   }
-
    .feature-card,
    .cta-button {
        transition: none;
