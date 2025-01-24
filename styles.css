@@ -7,19 +7,14 @@
 
 /* CSS Variables */
 :root {
-   --yellow-400: #F3EC6C;
-   --yellow-300: #000000;
-   --yellow-200: #737373;
-   --black: #F3EC6C;
-   --transition-standard: 0.3s ease;
-   --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
-   --shadow-md: 0 6px 8px rgba(0, 0, 0, 0.2);
+   --yellow: #F3EC6C;
+   --black: #000000;
 }
 
 /* Global styles */
 body {
    font-family: system-ui, -apple-system, sans-serif;
-   color: var(--black);
+   color: var(--yellow);
    min-height: 100vh;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
@@ -27,7 +22,7 @@ body {
 
 /* Background */
 .bg-gradient {
-   background: var(--yellow-300);
+   background: var(--black);
    position: relative;
 }
 
@@ -76,24 +71,19 @@ body {
 /* Button styles */
 .cta-button {
    background: transparent;
-   color: var(--yellow-400);
+   color: var(--yellow);
    padding: 1rem 2rem;
-   border: 2px solid var(--yellow-400);
+   border: 2px solid var(--yellow);
    border-radius: 0.5rem;
    font-size: 1.125rem;
    font-weight: 600;
    cursor: pointer;
-   transition: transform var(--transition-standard),
-               box-shadow var(--transition-standard),
-               background var(--transition-standard);
-   box-shadow: var(--shadow-sm);
+   transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-   background: var(--yellow-400);
-   color: var(--yellow-300);
-   transform: translateY(-2px);
-   box-shadow: var(--shadow-md);
+   background: var(--yellow);
+   color: var(--black);
 }
 
 /* Features section */
@@ -115,7 +105,7 @@ body {
    -webkit-backdrop-filter: blur(10px);
    padding: 2rem;
    border-radius: 1rem;
-   transition: all var(--transition-standard);
+   transition: all 0.3s ease;
    border: 1px solid rgba(243, 236, 108, 0.1);
 }
 
@@ -129,19 +119,17 @@ body {
    width: 3rem;
    height: 3rem;
    margin-bottom: 1rem;
-   color: var(--yellow-400);
+   color: var(--yellow);
 }
 
 .feature-card h3 {
    font-size: 1.25rem;
    font-weight: bold;
    margin-bottom: 1rem;
-   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .feature-card p {
    opacity: 0.7;
-   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive design */
