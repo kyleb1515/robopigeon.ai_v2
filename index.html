@@ -16,7 +16,7 @@
         <main class="main-content">
             <section class="hero">
                 <div class="hero-content">
-                    <h1>Banking for the Digital Age</h1>
+                    <h1>LETS SHARE THE POWER</h1>
                     <p>Experience seamless financial management with cutting-edge security and intuitive features.</p>
                     <button class="cta-button" aria-label="Get Started">Get Started</button>
                 </div>
@@ -51,10 +51,10 @@
             const logo = document.getElementById('mainLogo');
             logo.addEventListener('click', function() {
                 console.log('Logo clicked');
-                this.classList.add('spinning');
-                this.addEventListener('animationend', function() {
-                    this.classList.remove('spinning');
-                }, {once: true});
+                this.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    this.style.transform = 'rotate(0deg)';
+                }, 1000);
             });
         });
     </script>
