@@ -7,14 +7,14 @@
 
 /* CSS Variables */
 :root {
-   --yellow: #F3EC6C;
+   --white: #FFFFFF;
    --black: #000000;
 }
 
 /* Global styles */
 body {
    font-family: system-ui, -apple-system, sans-serif;
-   color: var(--yellow);
+   color: var(--white);
    min-height: 100vh;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
@@ -50,13 +50,12 @@ body {
     animation: rotate360 1s ease-in-out;
 }
 
-/* Rest of your CSS remains the same */
 /* Button styles */
 .cta-button {
    background: transparent;
-   color: var(--yellow);
+   color: var(--white);
    padding: 1rem 2rem;
-   border: 2px solid var(--yellow);
+   border: 2px solid var(--white);
    border-radius: 0.5rem;
    font-size: 1.125rem;
    font-weight: 600;
@@ -65,6 +64,6 @@ body {
 }
 
 .cta-button:hover {
-   background: var(--yellow);
+   background: var(--white);
    color: var(--black);
 }
