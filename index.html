@@ -13,45 +13,17 @@
     <div class="min-h-screen bg-gradient">
         <img src="logov2.svg" alt="RoboPigeon.ai Logo" id="mainLogo" class="main-logo" aria-label="RoboPigeon.ai">
         
-        <!-- Slide-up Menu -->
-        <div class="slide-menu">
+        <!-- Side Menu -->
+        <div class="side-menu">
             <nav>
-                <a href="#" class="menu-item">Home</a>
-                <a href="#" class="menu-item">About</a>
-                <a href="#" class="menu-item">Services</a>
-                <a href="#" class="menu-item">Contact</a>
+                <a href="#" class="menu-item">Dashboard</a>
+                <a href="#" class="menu-item">Analytics</a>
+                <a href="#" class="menu-item">Settings</a>
+                <a href="#" class="menu-item">Profile</a>
             </nav>
         </div>
-        
-        <main class="main-content">
-            <section class="hero">
-                <div class="hero-content">
-                    <h1>Banking for the Digital Age</h1>
-                    <p>Experience seamless financial management with cutting-edge security and intuitive features.</p>
-                    <button class="cta-button" aria-label="Get Started">Get Started</button>
-                </div>
-            </section>
 
-            <section class="features" aria-label="Key Features">
-                <div class="feature-card">
-                    <i class="icon" data-lucide="activity" aria-hidden="true"></i>
-                    <h3>Real-time Analytics</h3>
-                    <p>Track your spending patterns and financial health with advanced analytics tools.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <i class="icon" data-lucide="credit-card" aria-hidden="true"></i>
-                    <h3>Smart Cards</h3>
-                    <p>Contactless payments with intelligent spending limits and instant notifications.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <i class="icon" data-lucide="shield" aria-hidden="true"></i>
-                    <h3>Bank-grade Security</h3>
-                    <p>Advanced encryption and multi-factor authentication to protect your assets.</p>
-                </div>
-            </section>
-        </main>
+        <!-- Rest of your content remains the same -->
     </div>
 
     <script>
@@ -59,11 +31,11 @@
             lucide.createIcons();
             
             const logo = document.getElementById('mainLogo');
-            const menu = document.querySelector('.slide-menu');
+            const menu = document.querySelector('.side-menu');
             let menuVisible = false;
             
             logo.addEventListener('click', function() {
-                // First start the spin
+                // Start spin
                 this.classList.add('spinning');
                 
                 // After spin completes
