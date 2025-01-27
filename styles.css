@@ -1,9 +1,52 @@
-/* Base reset and variables remain the same */
+/* Base reset */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+   --primary: #000000;
+   --background: #ffffff;
+   --border-hover: rgba(0, 0, 0, 0.2);
+}
+
+/* Global styles */
+body {
+   font-family: system-ui, -apple-system, sans-serif;
+   color: var(--primary);
+   min-height: 100vh;
+   background: var(--background);
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Logo styling */
+.main-logo {
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   width: 120px;
+   height: 120px;
+   z-index: 2;
+   cursor: pointer;
+   transition: transform 1s ease;
+}
+
+@keyframes rotate360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+.main-logo.spinning {
+    animation: rotate360 1s ease-in-out;
+}
 
 /* Side Menu */
 .side-menu {
     position: absolute;
-    top: 140px; /* Below logo */
+    top: 140px;
     left: 10px;
     width: 200px;
     background: var(--background);
@@ -41,4 +84,117 @@
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Rest of your existing CSS remains the same */
+/* Layout */
+.main-content {
+   padding: 2rem;
+}
+
+/* Hero section */
+.hero {
+   height: 100vh;
+   display: flex;
+   align-items: center;
+}
+
+.hero-content {
+   max-width: 42rem;
+   position: relative;
+   z-index: 1;
+}
+
+.hero h1 {
+   font-size: 3.75rem;
+   font-weight: bold;
+   margin-bottom: 1.5rem;
+}
+
+.hero p {
+   font-size: 1.25rem;
+   margin-bottom: 2rem;
+   opacity: 0.8;
+}
+
+/* Button styles */
+.cta-button {
+   background: transparent;
+   color: var(--primary);
+   padding: 1rem 2rem;
+   border: 2px solid var(--primary);
+   border-radius: 0.5rem;
+   font-size: 1.125rem;
+   font-weight: 600;
+   cursor: pointer;
+   transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+   background: var(--primary);
+   color: var(--background);
+}
+
+/* Features section */
+.features {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 2rem;
+   padding: 5rem 1.5rem;
+   max-width: 1200px;
+   margin: 0 auto;
+   position: relative;
+   z-index: 1;
+}
+
+/* Feature cards */
+.feature-card {
+   background: rgba(0, 0, 0, 0.05);
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+   padding: 2rem;
+   border-radius: 1rem;
+   transition: all 0.3s ease;
+   border: 1px solid var(--border-hover);
+}
+
+.feature-card:hover {
+   transform: translateY(-0.25rem);
+   background: rgba(0, 0, 0, 0.1);
+   border-color: var(--primary);
+}
+
+.icon {
+   width: 3rem;
+   height: 3rem;
+   margin-bottom: 1rem;
+   color: var(--primary);
+}
+
+.feature-card h3 {
+   font-size: 1.25rem;
+   font-weight: bold;
+   margin-bottom: 1rem;
+}
+
+.feature-card p {
+   opacity: 0.7;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+   .hero h1 {
+       font-size: 2.5rem;
+   }
+   
+   .features {
+       grid-template-columns: 1fr;
+   }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+   .feature-card,
+   .cta-button,
+   .main-logo,
+   .side-menu {
+       transition: none;
+   }
+}
