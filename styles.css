@@ -1,3 +1,4 @@
+
 /* Base reset */
 * {
    margin: 0;
@@ -7,8 +8,8 @@
 
 /* CSS Variables */
 :root {
-   --yellow: #F3EC6C;
-   --black: #000000;
+   --yellow: #000000;
+   --black: #ffffff;
 }
 
 /* Global styles */
@@ -31,41 +32,11 @@ body {
    position: absolute;
    top: 10px;
    left: 10px;
-   width: 150px;
-   height: 150px;
+   width: 120px;
+   height: 120px;
    z-index: 2;
    cursor: pointer;
-}
-
-@keyframes rotate360 {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.main-logo.spinning {
-    animation: rotate360 1s ease-in-out;
-}
-
-/* Button styles */
-.cta-button {
-   background: transparent;
-   color: var(--yellow);
-   padding: 1rem 2rem;
-   border: 2px solid var(--yellow);
-   border-radius: 0.5rem;
-   font-size: 1.125rem;
-   font-weight: 600;
-   cursor: pointer;
-   transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-   background: var(--yellow);
-   color: var(--black);
+   transition: transform 1s ease;
 }
 
 /* Layout */
@@ -90,12 +61,32 @@ body {
    font-size: 3.75rem;
    font-weight: bold;
    margin-bottom: 1.5rem;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
    font-size: 1.25rem;
    margin-bottom: 2rem;
    opacity: 0.8;
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Button styles */
+.cta-button {
+   background: transparent;
+   color: var(--yellow);
+   padding: 1rem 2rem;
+   border: 2px solid var(--yellow);
+   border-radius: 0.5rem;
+   font-size: 1.125rem;
+   font-weight: 600;
+   cursor: pointer;
+   transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+   background: var(--yellow);
+   color: var(--black);
 }
 
 /* Features section */
@@ -157,8 +148,9 @@ body {
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-   * {
-       animation: none !important;
-       transition: none !important;
+   .feature-card,
+   .cta-button,
+   .main-logo {
+       transition: none;
    }
 }
