@@ -1,4 +1,3 @@
-
 /* Base reset */
 * {
    margin: 0;
@@ -8,23 +7,19 @@
 
 /* CSS Variables */
 :root {
-   --yellow: #000000;
-   --black: #ffffff;
+   --primary: #000000;
+   --background: #ffffff;
+   --border-hover: rgba(0, 0, 0, 0.2);
 }
 
 /* Global styles */
 body {
    font-family: system-ui, -apple-system, sans-serif;
-   color: var(--yellow);
+   color: var(--primary);
    min-height: 100vh;
+   background: var(--background);
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
-}
-
-/* Background */
-.bg-gradient {
-   background: var(--black);
-   position: relative;
 }
 
 /* Logo styling */
@@ -37,6 +32,15 @@ body {
    z-index: 2;
    cursor: pointer;
    transition: transform 1s ease;
+}
+
+@keyframes rotate360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.main-logo.spinning {
+    animation: rotate360 1s ease-in-out;
 }
 
 /* Layout */
@@ -61,22 +65,20 @@ body {
    font-size: 3.75rem;
    font-weight: bold;
    margin-bottom: 1.5rem;
-   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
    font-size: 1.25rem;
    margin-bottom: 2rem;
    opacity: 0.8;
-   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Button styles */
 .cta-button {
    background: transparent;
-   color: var(--yellow);
+   color: var(--primary);
    padding: 1rem 2rem;
-   border: 2px solid var(--yellow);
+   border: 2px solid var(--primary);
    border-radius: 0.5rem;
    font-size: 1.125rem;
    font-weight: 600;
@@ -85,8 +87,8 @@ body {
 }
 
 .cta-button:hover {
-   background: var(--yellow);
-   color: var(--black);
+   background: var(--primary);
+   color: var(--background);
 }
 
 /* Features section */
@@ -103,26 +105,26 @@ body {
 
 /* Feature cards */
 .feature-card {
-   background: rgba(0, 0, 0, 0.1);
+   background: rgba(0, 0, 0, 0.05);
    backdrop-filter: blur(10px);
    -webkit-backdrop-filter: blur(10px);
    padding: 2rem;
    border-radius: 1rem;
    transition: all 0.3s ease;
-   border: 1px solid rgba(243, 236, 108, 0.1);
+   border: 1px solid var(--border-hover);
 }
 
 .feature-card:hover {
    transform: translateY(-0.25rem);
-   background: rgba(0, 0, 0, 0.15);
-   border-color: rgba(243, 236, 108, 0.2);
+   background: rgba(0, 0, 0, 0.1);
+   border-color: var(--primary);
 }
 
 .icon {
    width: 3rem;
    height: 3rem;
    margin-bottom: 1rem;
-   color: var(--yellow);
+   color: var(--primary);
 }
 
 .feature-card h3 {
