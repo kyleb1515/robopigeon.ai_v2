@@ -11,9 +11,9 @@
 </head>
 <body>
     <div class="min-h-screen bg-gradient">
-        <img src="logov2.svg" alt="RoboPigeon.ai Logo" id="mainLogo" class="main-logo" aria-label="RoboPigeon.ai">
+        <img src="logov2.svg" alt="RoboPigeon.ai Logo" id="mainLogo" class="main-logo">
         <div class="side-menu">
-            <nav>
+            <nav role="navigation">
                 <a href="#" class="menu-item">Dashboard</a>
                 <a href="#" class="menu-item">Analytics</a>
                 <a href="#" class="menu-item">Settings</a>
@@ -53,21 +53,21 @@
     </div>
 
     <script>
-let spinDirection = -1;
-const logo = document.getElementById('mainLogo');
+        let spinDirection = -1;
+        const logo = document.getElementById('mainLogo');
 
-logo.addEventListener('click', function() {
-    this.style.animation = 'none';
-    this.offsetHeight;
-    this.style.animation = `rotate360 1s ease-in-out forwards`;
-    this.style.animationDirection = spinDirection === 1 ? 'normal' : 'reverse';
-    
-    this.addEventListener('animationend', function() {
-        this.style.animation = '';
-        document.querySelector('.side-menu').classList.toggle('show');
-        spinDirection *= -1;
-    }, {once: true});
-});
+        logo.addEventListener('click', function() {
+            this.style.animation = 'none';
+            this.offsetHeight;
+            this.style.animation = `rotate360 1s ease-in-out forwards`;
+            this.style.animationDirection = spinDirection === 1 ? 'normal' : 'reverse';
+            
+            this.addEventListener('animationend', function() {
+                this.style.animation = '';
+                document.querySelector('.side-menu').classList.toggle('show');
+                spinDirection *= -1;
+            }, {once: true});
+        });
     </script>
 </body>
 </html>
