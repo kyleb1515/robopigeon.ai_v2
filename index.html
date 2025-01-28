@@ -59,7 +59,7 @@ const logo = document.getElementById('mainLogo');
 logo.addEventListener('click', function() {
     this.style.animation = 'none';
     this.offsetHeight;
-    this.style.animation = `rotate360 1s ease-in-out forwards`;
+    this.style.animation = `rotate360 0.5s ease-in-out forwards`;
     this.style.animationDirection = spinDirection === 1 ? 'normal' : 'reverse';
     
     this.addEventListener('animationend', function() {
