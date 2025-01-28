@@ -1,28 +1,52 @@
-/* Base reset */
+/* Reset all elements to a consistent base */
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
 }
 
-/* CSS Variables */
+/* Global CSS Variables for consistent theming */
 :root {
+   /* Color variables */
    --primary: #000000;
    --background: #ffffff;
    --border-hover: rgba(0, 0, 0, 0.2);
+   --shadow-light: rgba(101, 119, 134, 0.2);
+   --shadow-dark: rgba(101, 119, 134, 0.15);
+   --text-secondary: #536471;
+   
+   /* Typography scale */
+   --font-small: 0.875rem;    /* 14px */
+   --font-base: 1rem;         /* 16px */
+   --font-large: 1.125rem;    /* 18px */
+   --font-xl: 1.25rem;        /* 20px */
+   --font-2xl: 1.5rem;        /* 24px */
+   
+   /* Line heights */
+   --leading-tight: 1.2;
+   --leading-normal: 1.5;
+   --leading-loose: 1.75;
+   
+   /* Spacing scale */
+   --space-1: 0.25rem;
+   --space-2: 0.5rem;
+   --space-3: 1rem;
+   --space-4: 1.5rem;
+   --space-5: 2rem;
 }
 
-/* Global styles */
+/* Base styles for the entire document */
 body {
    font-family: system-ui, -apple-system, sans-serif;
    color: var(--primary);
    min-height: 100vh;
    background: var(--background);
+   /* Improve text rendering on modern browsers */
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Logo styling */
+/* Logo Animation and Styling */
 .main-logo {
    position: absolute;
    top: 10px;
@@ -31,6 +55,7 @@ body {
    height: 120px;
    z-index: 2;
    cursor: pointer;
+   /* Performance optimizations for animation */
    transition: transform 0.2s ease;
    transform-origin: center;
    will-change: transform;
@@ -41,41 +66,95 @@ body {
     to { transform: rotate(360deg); }
 }
 
-/* Post Container */
-.post-container {
-    max-width: 600px;
-    margin: 20px auto;
-    background: white;
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, 
-                rgba(101, 119, 134, 0.15) 0px 0px 3px 1px;
-    transition: background-color 0.2s ease;
-}
-
-.post-container:hover {
-    background-color: rgba(0, 0, 0, 0.03);
-}
-
-/* Layout */
+/* Main Layout Components */
 .main-content {
    padding: 2rem;
 }
 
-/* Hero section */
+/* Hero Section Styling */
 .hero {
-   height: 100vh;
+   min-height: 100vh;
+   /* Center content both vertically and horizontally */
    display: flex;
+   justify-content: center;
    align-items: center;
 }
 
 .hero-content {
-   max-width: 42rem;
-   position: relative;
-   z-index: 1;
+   width: 100%;
+   display: flex;
+   justify-content: center;
 }
 
-/* Features section */
+.post-container {
+   width: 100%;
+   max-width: 600px;
+   min-height: 400px;
+   padding: 16px;
+   border-radius: 16px;
+   background: linear-gradient(
+       to bottom right,
+       rgba(255, 255, 255, 0.9),
+       rgba(255, 255, 255, 0.8)
+   );
+   backdrop-filter: blur(12px);
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   box-shadow: 
+       0 4px 6px rgba(0, 0, 0, 0.05),
+       0 10px 15px rgba(0, 0, 0, 0.1);
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.post-container:hover {
+   transform: translateY(-2px);
+   box-shadow: 
+       0 6px 8px rgba(0, 0, 0, 0.05),
+       0 12px 18px rgba(0, 0, 0, 0.1);
+}
+
+.post-input {
+   background: rgba(255, 255, 255, 0.8);
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   transition: border-color 0.2s ease, background-color 0.2s ease;
+   font-size: var(--font-base);
+   line-height: var(--leading-normal);
+}
+
+.post-input:focus {
+   outline: none;
+   border-color: var(--primary);
+   background: rgba(255, 255, 255, 0.95);
+   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.post-input {
+   width: 100%;
+   min-height: 100px;
+   padding: 12px;
+   resize: none;
+   font-family: inherit;
+   background: rgba(255, 255, 255, 0.8);
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   border-radius: 8px;
+   margin-bottom: 12px;
+   transition: border-color 0.2s ease, background-color 0.2s ease;
+   font-size: var(--font-base);
+   line-height: var(--leading-normal);
+}
+
+.post-button {
+   padding: 8px 16px;
+   background: var(--primary);
+   color: var(--background);
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   float: right;
+   font-weight: 500;
+   letter-spacing: 0.5px;
+   transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Feature Cards Section */
 .features {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -87,7 +166,6 @@ body {
    z-index: 1;
 }
 
-/* Feature cards */
 .feature-card {
    background: rgba(0, 0, 0, 0.05);
    backdrop-filter: blur(10px);
@@ -96,7 +174,6 @@ body {
    border-radius: 1rem;
    transition: all 0.3s ease;
    border: 1px solid var(--border-hover);
-   min-height: 200px;
 }
 
 .feature-card:hover {
@@ -105,38 +182,21 @@ body {
    border-color: var(--primary);
 }
 
-.icon {
-   width: 3rem;
-   height: 3rem;
-   margin-bottom: 1rem;
-   color: var(--primary);
-}
-
-.feature-card h3 {
-   font-size: 1.25rem;
-   font-weight: bold;
-   margin-bottom: 1rem;
-}
-
-.feature-card p {
-   opacity: 0.7;
-}
-
-/* Side menu */
+/* Navigation Menu */
 .side-menu {
     position: absolute;
     top: 140px;
     left: 10px;
     width: 200px;
-    background: #ffffff;
+    background: var(--background);
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Initial hidden state */
     transform: translateY(-20px);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    z-index: 1;
 }
 
 .side-menu.show {
@@ -147,59 +207,29 @@ body {
 
 .menu-item {
     display: block;
-    color: #000;
+    color: var(--primary);
     text-decoration: none;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
 }
 
-.menu-item:hover,
-.menu-item:focus {
-    background: rgba(0, 0, 0, 0.05);
-    outline: none;
+.menu-item:hover {
+   background: rgba(0, 0, 0, 0.05);
+   border-radius: 4px;
 }
 
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 768px) {
    .features {
        grid-template-columns: 1fr;
    }
-   
-   .post-container {
-       margin: 20px;
-   }
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary: #ffffff;
-        --background: #000000;
-    }
-    
-    .post-container,
-    .side-menu {
-        background: #1a1a1a;
-        color: #ffffff;
-    }
-    
-    .menu-item {
-        color: #ffffff;
-    }
-}
-
-/* Reduced motion */
+/* Accessibility - Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
    .feature-card,
    .menu-item,
-   .side-menu,
    .main-logo {
        transition: none;
-   }
-   
-   .feature-card:hover {
-       transform: none;
    }
 }
