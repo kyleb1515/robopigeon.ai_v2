@@ -22,6 +22,17 @@ body {
    -moz-osx-font-smoothing: grayscale;
 }
 
+/* Post Container */
+.post-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e1e8ed;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
 /* Logo styling */
 .main-logo {
    position: absolute;
@@ -31,7 +42,7 @@ body {
    height: 120px;
    z-index: 2;
    cursor: pointer;
-   transition: transform 1s ease;
+   transition: transform 0.2s ease;
 }
 
 @keyframes rotate360 {
@@ -40,7 +51,7 @@ body {
 }
 
 .main-logo.spinning {
-    animation: rotate360 0.7s ease-in-out;
+    animation: rotate360 0.2s ease-in-out;
 }
 
 /* Layout */
@@ -157,7 +168,6 @@ body {
    }
 }
 
-
 .side-menu {
     position: absolute;
     top: 140px;
@@ -166,7 +176,7 @@ body {
     background: #ffffff;
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     transform: translateY(-20px);
     opacity: 0;
     visibility: hidden;
