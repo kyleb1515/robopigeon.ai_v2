@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Essential meta tags for proper rendering and SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="RoboPigeon.ai - AI-powered trading platform with real-time analytics">
     <meta name="theme-color" content="#F3EC6C">
+    
     <title>RoboPigeon.ai</title>
+    
+    <!-- Stylesheets and resource preloading -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    
+    <!-- Defer non-critical scripts -->
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest" defer></script>
 </head>
 <body>
+    <!-- Main container with minimum height -->
     <div class="min-h-screen bg-gradient">
+        <!-- Logo with click interaction -->
         <img src="logov2.svg" alt="RoboPigeon.ai Logo" id="mainLogo" class="main-logo">
+        
+        <!-- Side navigation menu -->
         <div class="side-menu">
             <nav role="navigation">
                 <a href="#" class="menu-item">Dashboard</a>
@@ -21,28 +32,35 @@
             </nav>
         </div>
         
+        <!-- Main content area -->
         <main class="main-content">
+            <!-- Hero section with post container -->
             <section class="hero">
                 <div class="hero-content">
                     <div class="post-container">
-                        Your content here
+                        <textarea class="post-input" placeholder="What's on your mind?"></textarea>
+                        <button class="post-button">Post</button>
                     </div>
                 </div>
             </section>
 
+            <!-- Features section with cards -->
             <section class="features" aria-label="Key Features">
+                <!-- Analytics feature -->
                 <div class="feature-card">
                     <i class="icon" data-lucide="activity" aria-hidden="true"></i>
                     <h3>Real-time Analytics</h3>
                     <p>Track your spending patterns and financial health with advanced analytics tools.</p>
                 </div>
                 
+                <!-- Smart Cards feature -->
                 <div class="feature-card">
                     <i class="icon" data-lucide="credit-card" aria-hidden="true"></i>
                     <h3>Smart Cards</h3>
                     <p>Contactless payments with intelligent spending limits and instant notifications.</p>
                 </div>
                 
+                <!-- Security feature -->
                 <div class="feature-card">
                     <i class="icon" data-lucide="shield" aria-hidden="true"></i>
                     <h3>Bank-grade Security</h3>
@@ -52,21 +70,28 @@
         </main>
     </div>
 
+    <!-- Logo animation and menu toggle script -->
     <script>
+        // Initialize direction for logo spin
         let spinDirection = -1;
         const logo = document.getElementById('mainLogo');
 
+        // Add click event listener to logo
         logo.addEventListener('click', function() {
+            // Reset animation
             this.style.animation = 'none';
-            this.offsetHeight;
-            this.style.animation = `rotate360 1s ease-in-out forwards`;
+            this.offsetHeight; // Trigger reflow
+            
+            // Apply new animation
+            this.style.animation = `rotate360 0.5s ease-in-out forwards`;
             this.style.animationDirection = spinDirection === 1 ? 'normal' : 'reverse';
             
+            // Handle animation end
             this.addEventListener('animationend', function() {
                 this.style.animation = '';
                 document.querySelector('.side-menu').classList.toggle('show');
-                spinDirection *= -1;
-            }, {once: true});
+                spinDirection *= -1; // Toggle direction for next spin
+            }, {once: true}); // Remove listener after execution
         });
     </script>
 </body>
